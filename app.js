@@ -8,5 +8,5 @@ myForm.addEventListener("submit", (e) => {
     results[name] = value;
   }
   console.log(results);
-  myForm.reset();
+  myForm.reset();c
 });
