@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Operations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#f8f8f8] font-sans antialiased">
+    <div
+      id="modal"
+      class="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
+    >
+      <form id="myForm" class="bg-white p-6 rounded-lg w-96 shadow-lg">
+        <h3 class="text-lg font-bold mb-4">Talaba qo'shish</h3>
+        <input
+          id="userName"
+          name="userName"
+          type="text"
+          placeholder="Ism"
+          class="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#FEAF00]"
+        />
+        <input
+          id="userEmail"
+          name="userEmail"
+          type="text"
+          placeholder="Email"
+          class="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#FEAF00]"
+        />
+        <input
+          id="userPhone"
+          name="userPhone"
+          type="text"
+          placeholder="Telefon"
+          class="w-full mb-3 p-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#FEAF00]"
+        />
+        <input
+          id="userEnroll"
+          name="userEnroll"
+          type="text"
+          placeholder="Enroll Number"
+          class="w-full mb-4 p-2 border rounded focus:outline-none focus:ring-1 focus:ring-[#FEAF00]"
+        />
+
+        <div class="flex justify-end gap-2">
+          <button
+            id="closeBtn"
+            type="button"
+            class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-4 py-2 bg-[#FEAF00] text-white rounded hover:bg-[#e09b00]"
+          >
+            OK
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex h-screen">
+      <aside
+        class="w-64 bg-[#f2eae1] flex flex-col justify-between p-6 shrink-0"
+      >
+        <div>
+          <div class="flex items-center gap-2 mb-10 pl-2">
+            <div class="w-1.5 h-6 bg-[#FEAF00]"></div>
+            <h1 class="font-bold text-lg text-black tracking-wide uppercase">
+              Crud Operations
+            </h1>
+          </div>
+
+          <div class="flex flex-col items-center mb-10 text-center">
+            <img
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              class="w-24 h-24 rounded-full object-cover mb-3 shadow-sm"
+            />
+            <h2 class="font-bold text-black text-lg">Karthi Madesh</h2>
+            <p class="text-[#FEAF00] font-medium text-sm">Admin</p>
+          </div>
+
+          <nav class="flex flex-col gap-2">
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 text-black font-medium text-sm rounded-lg hover:bg-[#FEAF00] transition"
+            >
+              <span>🏠</span> Home
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 text-black font-medium text-sm rounded-lg hover:bg-[#FEAF00] transition"
+            >
+              <span>🔖</span> Course
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 bg-[#FEAF00] text-black font-medium text-sm rounded-lg shadow-sm"
+            >
+              <span>🎓</span> Students
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 text-black font-medium text-sm rounded-lg hover:bg-[#FEAF00] transition"
+            >
+              <span>💲</span> Payment
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 text-black font-medium text-sm rounded-lg hover:bg-[#FEAF00] transition"
+            >
+              <span>📄</span> Report
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-4 px-8 py-3 text-black font-medium text-sm rounded-lg hover:bg-[#FEAF00] transition"
+            >
+              <span>⚙️</span> Settings
+            </a>
+          </nav>
+        </div>
+
+        <div class="pt-6">
+          <a
+            href="#"
+            class="flex items-center justify-between px-8 py-2 text-black font-medium text-sm hover:opacity-75"
+          >
+            <span>Logout</span>
+            <span>↪</span>
+          </a>
+        </div>
+      </aside>
+
+      <main class="flex-1 flex flex-col">
+        <header
+          class="h-16 px-8 flex items-center justify-between bg-white/50 backdrop-blur-sm"
+        >
+          <div>
+            <button class="text-gray-400 hover:text-gray-600 text-lg">◀</button>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                class="w-56 pl-4 pr-9 py-1.5 text-sm bg-white border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#FEAF00]"
+              />
+              <span
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"
+                >🔍</span
+              >
+            </div>
+            <button class="text-gray-400 hover:text-gray-600 text-lg relative">
+              🔔
+            </button>
+          </div>
+        </header>
+
+        <div class="mainBox p-8 flex-1">
+          <div
+            class="flex items-center justify-between mb-6 pb-4 border-b border-gray-200"
+          >
+            <h2 class="text-2xl font-bold text-black tracking-tight">
+              Students List
+            </h2>
+            <div class="flex items-center gap-4">
+              <button class="text-gray-400 hover:text-gray-600 text-sm">
+                ⇅
+              </button>
+              <button
+                onclick="openModal()"
+                class="bg-[#FEAF00] hover:bg-[#e09b00] text-white text-xs font-semibold px-5 py-3 rounded-md uppercase tracking-wider transition shadow-sm"
+              >
+                ADD NEW STUDENT
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="grid grid-cols-12 gap-4 text-xs font-semibold text-gray-400 uppercase mb-4 px-4"
+          >
+            <div class="col-span-1"></div>
+            <div class="col-span-2">Name</div>
+            <div class="col-span-3">Email</div>
+            <div class="col-span-2">Phone</div>
+            <div class="col-span-2">Enroll Number</div>
+            <div class="col-span-2 flex justify-between pr-4">
+              <span>Date of admission</span>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-lg p-4 grid grid-cols-12 gap-4 items-center shadow-sm hover:shadow-md transition"
+          >
+            <div class="col-span-1"></div>
+            <div id="resName" class="col-span-2 font-medium text-black text-sm">
+              Karthi
+            </div>
+            <div id="resEmail" class="col-span-3 text-sm text-gray-700">
+              karthi@gmmail.com
+            </div>
+            <div id="resPhone" class="col-span-2 text-sm text-gray-700">
+              7305477760
+            </div>
+            <div id="resEnroll" class="col-span-2 text-sm text-gray-700">
+              1234567305477760
+            </div>
+            <div
+              class="col-span-2 flex items-center justify-between text-sm text-gray-700"
+            >
+              <span>08-Dec, 2021</span>
+              <div class="flex items-center gap-3">
+                <button
+                  class="text-[#FEAF00] hover:scale-110 transition text-base"
+                >
+                  ✏️
+                </button>
+                <button
+                  class="text-[#FEAF00] hover:scale-110 transition text-base"
+                >
+                  🗑️
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
